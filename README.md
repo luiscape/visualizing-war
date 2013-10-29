@@ -1,5 +1,5 @@
-Summary
-=======
+Visualizing War
+===============
 
 Visualizing War aims to create beautiful and insightful visualizations of war using public and open-source data. 
 
