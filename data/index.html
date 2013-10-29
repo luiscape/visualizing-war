@@ -1,0 +1,135 @@
+<!doctype html>
+
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>List.js - Paging Plugin</title>
+    <meta name="description" content="List.js is super flexible and here are two examples of how to use it.">
+    <meta name="author" content="Jonny Strömberg">
+    <meta name="google-site-verification" content="CxtqsFWhMxG32DK5A7Hbtg1ficvqhu9sybSeDP25JpI" />
+
+    <!--
+
+    Nothing to see here that has to do with List.js, look at the bottom of the page!
+
+    -->
+    <link rel="shortcut icon" href="../images/graphics/favicon.ico">
+
+
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+
+    <script src="../js/jquery.dropotron.js"></script>
+    <script src="../js/skel.min.js"></script>
+    <script src="../js/skel-panels.min.js"></script>
+    <script src="../js/init.js"></script>
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <noscript>
+        <link rel="stylesheet" href="../css/skel-noscript.css" />   
+        <link rel="stylesheet" href="../css/style-desktop.css" />
+        <link rel="stylesheet" href="../css/style-noscript.css" />
+    </noscript>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+</head>
+
+<body class="homepage">
+    <div id="header">
+
+
+        <div class="inner">
+        </div>
+
+        <nav id="nav">
+        </nav>
+        <!-- Banner -->
+            <div id="banner">
+                <h2>A look at <strong>war</strong> through public and open-data.</h2>
+                <span class="byline">
+                    We are both <i>collecting</i> and <i>analyzing</i> public and open-data about war. Right now you can browse a list of links and databases we have collected so far. 
+                </span>
+                <br />
+                <span><a href="" class="button" >List of Databases</a></span>
+            </div>
+
+
+
+
+    <div id="container" class="example-page">
+ 
+
+            <div id="main">
+
+                
+                
+                <div class="c1">
+                    <h2>Test list</h2>
+                    <div id="lovely-things-list">
+                        <input class="search-fuzzy" placeholder="Search lovely characters" />
+                        <ul class="sort-by">
+                            <li class="sort btn" data-sort="character">Sort by name</li>
+                            <li class="sort btn" data-sort="game">Sort by game</li>
+                        </ul>
+                        <ul class="paging topPaging clearfix"></ul>
+                        <ul class="list">
+                        </ul>
+                        <ul class="paging bottomPaging clearfix"></ul>
+                    </div>
+                </div>
+        </div>
+
+    </div> <!-- end of #container -->
+
+
+    <!-- Start of List.js stuff -->
+    <script src="src/list.js"></script>
+    <script src="src/list.fuzzySearch.js"></script>
+
+    <script type="text/javascript">
+
+        /*
+        * LOVELY CHARACTERS
+        */
+
+        var options = {
+            item: "<li><h4 class='character'></h4><span class='game'></span></li>",
+            valueNames: [ 'character', 'game' ],
+            plugins: [
+                [ 'fuzzySearch' ]
+            ]
+        };
+
+        var items = [
+            { character: "Guybrush Threepwood", game: "The Secret of Monkey Island" },
+            { character: "Manny Calavera", game: "Grim Fandango" },
+            { character: "Bernard Bernoulli", game: "Maniac Mansion" },
+            { character: "LeChuck", game: "Monkey Island" },
+            { character: "Elaine Marley-Threepwood", game: "Monkey Island" },
+            { character: "Purple Tentacle", game: "Day of the Tentacle" },
+            { character: "Adrian Ripburger", game: "Full Throttle" },
+            { character: "Bobbin Threadbare", game: "Loom" },
+            { character: "Murray the Demonic Skull", game: "The Curse of Monkey Island" },
+            { character: "Zak McKracken", game: "Zak McKracken & the Alien Mindbenders" }
+        ];
+
+        var featureList = new List('lovely-things-list', options, items);
+
+        $('.search-fuzzy').keyup(function() {
+            featureList.fuzzySearch($(this).val());
+        });
+    </script>
+    <!-- End of List.js stuff -->
+    <div id="footer">
+    </div>
+</div>
+</body>
+</html>
